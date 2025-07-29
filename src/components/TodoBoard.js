@@ -2,6 +2,7 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoBoard = ({ todoList, deleteItem, toggleComplete }) => {
+  console.log(todoList);
   return (
     <div>
       <h2>Todo List</h2>

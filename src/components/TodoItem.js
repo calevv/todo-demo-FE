@@ -8,6 +8,10 @@ const TodoItem = ({ item, deleteItem, toggleComplete }) => {
         <div className={`todo-item ${item.isComplete ? "item-complete" : ""}`}>
           <div className="todo-content">{item.task}</div>
 
+          <div className="todo-content">
+            By {item.author ? item.author.name : "이름없음"}
+          </div>
+
           <div>
             <button
               className="button-delete"

@@ -3,9 +3,10 @@ import TodoBoard from "../components/TodoBoard";
 import api from "../utils/api";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 
-const TodoPage = () => {
+const TodoPage = ({ setUser }) => {
   const [todoList, setTodoList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
 
@@ -56,9 +57,22 @@ const TodoPage = () => {
       console.log("error", error);
     }
   };
+
+  const logoutBtn = () => {
+    sessionStorage.removeItem("token");
+    setUser(null);
+  };
   return (
     <Container>
       <Row className="add-item-row">
+        <div className="d-flex justify-content-end mb-4">
+          <Button
+            style={{ backgroundColor: "#ADD8E6", border: "none" }}
+            onClick={logoutBtn}
+          >
+            로그아웃
+          </Button>
+        </div>
         <Col xs={12} sm={10}>
           <input
             type="text"
